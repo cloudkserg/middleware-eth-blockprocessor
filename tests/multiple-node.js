@@ -1,5 +1,4 @@
-const {spawn} = require('child_process'),
-    config = require('./config'),
+const config = require('./config'),
     Promise = require('bluebird'),
     consumeMessages = require('./helpers/consumeMessages'),
     expect = require('chai').expect,
@@ -39,9 +38,14 @@ describe('multiple node blocks test', function () {
 
 
     childs.push(await cluster.fork());
+    console.log(childs);
     childs.push(await cluster.fork());
+    console.log(childs);    
     childs.push(await cluster.fork());
+    console.log(childs);    
     childs.push(await cluster.fork());
+    console.log(childs);
+    
 
     await channel.assertExchange('super_events', 'direct', {autoDelete: true});
 
